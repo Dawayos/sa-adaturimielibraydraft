@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sa'adatu Rimi College of Education | Digital Library</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <!-- Glide.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/css/glide.core.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/css/glide.theme.min.css">
+
+  <style>
+    :root {
+      --primary-green: #2E7D32;
+      --secondary-green: #1B5E20;
+      --accent-gold: #FFD700;
+      --white: #fff;
+      --light-gray: #f8f9fa;
+      --medium-gray: #e9ecef;
+      --dark: #212121;
+      --gray: #777;
+      --box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      --transition: all 0.3s ease;
+      --border-radius: 8px;
+      --section-padding: 5rem 2rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-gray);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-top: 140px; /* Added to account for fixed header */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header with fixed position */
+    .header-container {
+      background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .college-logo {
+      height: 70px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    .logo-text h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .logo-text p {
+      font-size: 0.85rem;
+      color: var(--accent-gold);
+      font-weight: 500;
+    }
+
+    .datetime {
+      font-size: 0.9rem;
+      text-align: right;
+    }
+
+    /* Fixed Navigation */
+    .nav-container {
+      background: var(--secondary-green);
+      position: fixed;
+      top: 90px; /* Adjusted based on header height */
+      left: 0;
+      right: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.8rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .main-nav a {
+      color: white;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: var(--border-radius);
+      position: relative;
+    }
+
+    .main-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: var(--transition);
+    }
+
+    .main-nav a:hover::after {
+      width: 70%;
+    }
+
+    .main-nav a.active {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--primary-green);
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent-gold);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      background: var(--primary-green);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--box-shadow);
+    }
+
+    .btn:hover {
+      background: var(--secondary-green);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-accent {
+      background: var(--accent-gold);
+      color: var(--dark);
+    }
+
+    .btn-accent:hover {
+      background: #e6c200;
+    }
+
+    /* Hero Section - adjusted margin-top */
+    .hero-section {
+      position: relative;
+      min-height: 80vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('dd.avif') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 0 2rem;
+      margin-top: -140px; /* Compensate for fixed header */
+      padding-top: 140px; /* Ensure content isn't hidden behind fixed header */
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero-title {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1.2rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      outline: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transform: scale(1.02);
+    }
+
+    .search-btn {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-green);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .search-btn:hover {
+      background: var(--secondary-green);
+    }
+
+    .hero-btns {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: var(--section-padding);
+      background: var(--white);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-img {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      animation: fadeInLeft 1s ease;
+    }
+
+    .about-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .about-img:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-text {
+      animation: fadeInRight 1s ease;
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-green);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--gray);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--light-gray);
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary-green);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* Programs Section */
+    .programs-section {
+      padding: var(--section-padding);
+      background: var(--light-gray);
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .program-card {
+      background: var(--white);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .program-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .program-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .program-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .program-card:hover .program-img img {
+      transform: scale(1.1);
+    }
+
+    .program-content {
+      padding: 1.5rem;
+    }
+
+    .program-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-green);
+    }
+
+    .program-desc {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Library Section */
+    .library-section {
+      padding: var(--section-padding);
+      background: var(--white);
+    }
+
+    .library-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+    }
+
+    .library-intro p {
+      color: var(--gray);
+    }
+
+    .library-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .library-feature {
+      text-align: center;
+      padding: 2rem;
+      background: var(--light-gray);
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    .library-feature:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .library-icon {
+      font-size: 2.5rem;
+      color: var(--primary-green);
+      margin-bottom: 1rem;
+    }
+
+    .library-feature h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .library-feature p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .library-btn {
+      text-align: center;
+    }
+
+    /* Leadership Section */
+    .leadership-section {
+      padding: var(--section-padding);
+      background: var(--light-gray);
+    }
+
+    .glide__slides {
+      align-items: center;
+    }
+
+    .leader-card {
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .leader-photo {
+      width: 370px;
+      height: 370px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent-gold);
+      margin: 0 auto 1.5rem;
+      box-shadow: var(--box-shadow);
+    }
+
+    .leader-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--primary-green);
+    }
+
+    .leader-position {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .leader-summary {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .glide__arrows {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+    }
+
+    .glide__arrow {
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: var(--primary-green);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: var(--box-shadow);
+    }
+
+    .glide__arrow:hover {
+      background: var(--primary-green);
+      color: white;
+    }
+
+    .glide__bullets {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .glide__bullet {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ccc;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .glide__bullet--active {
+      background: var(--primary-green);
+      transform: scale(1.2);
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: var(--section-padding);
+      background: var(--white);
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .contact-info {
+      animation: fadeInLeft 1s ease;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      color: var(--primary-green);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-icon {
+      font-size: 1.2rem;
+      color: var(--accent-gold);
+      margin-top: 0.2rem;
+    }
+
+    .contact-text h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-text p, .contact-text a {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .contact-text a:hover {
+      color: var(--primary-green);
+    }
+
+    .contact-form {
+      animation: fadeInRight 1s ease;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    /* Location Section */
+    .location-section {
+      padding: var(--section-padding);
+      background: var(--light-gray);
+    }
+
+    .map-container {
+      width: 100%;
+      height: 400px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Footer */
+    .footer-container {
+      background: linear-gradient(to right, var(--primary-green), var(--secondary-green));
+      color: white;
+      padding: 4rem 0 0;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      padding-bottom: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--accent-gold);
+    }
+
+    .footer-col p {
+      margin-bottom: 1rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-gold);
+      transform: translateX(5px);
+    }
+
+    .footer-links i {
+      font-size: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--accent-gold);
+      color: var(--dark);
+      transform: translateY(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--primary-green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--box-shadow);
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background: var(--secondary-green);
+      transform: translateY(-5px);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .about-img {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --section-padding: 4rem 1.5rem;
+      }
+
+      body {
+        padding-top: 180px; /* Adjusted for mobile header height */
+      }
+
+      .header-container {
+        padding: 0.5rem 0;
+      }
+
+      .nav-container {
+        top: 70px; /* Adjusted for mobile header height */
+      }
+
+      .hero-section {
+        margin-top: -180px; /* Adjusted for mobile header height */
+        padding-top: 180px; /* Adjusted for mobile header height */
+      }
+
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .datetime {
+        text-align: center;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .leader-photo {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .main-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .glide__arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fixed Header -->
+  <header class="header-container">
+    <div class="container header-content">
+      <div class="logo-container">
+        <img src="download.jpg" alt="SRCOE Logo" class="college-logo">
+        <div class="logo-text">
+          <h1>SA'ADATU RIMI COLLEGE OF EDUCATION</h1>
+          <p>A Citadel of Teacher Training Excellence</p>
+        </div>
+      </div>
+      <div class="datetime" id="datetime"></div>
+    </div>
+  </header>
+
+  <!-- Fixed Navigation -->
+  <nav class="nav-container">
+    <div class="main-nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#programs">Academic Programs</a>
+      <a href="#library">Books Collection</a>
+      <a href="https://sruelibraryngcom.bubbleapps.io/version-test/ebook/1710212336959x661714823255223900" target="_blank">Repository</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title animate__animated animate__fadeInDown">Explore Our Digital Knowledge Hub</h1>
+      <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">Access 50,000+ academic resources to support your teaching and learning journey</p>
+      
+      <div class="search-container animate__animated animate__fadeInUp animate__delay-2s">
+        <input type="text" class="search-input" placeholder="Search books, journals, and resources...">
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+      
+      <div class="hero-btns animate__animated animate__fadeInUp animate__delay-3s">
+        <a href="#library" class="btn">Browse Collection</a>
+        <a href="https://sruelibraryngcom.bubbleapps.io/version-test/ebook/1710212336959x661714823255223900" target="_blank" class="btn btn-accent">Digital Repository</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <h2 class="section-title">About Our Institution</h2>
+      
+      <div class="about-content">
+        <div class="about-img">
+          <img src="Circulation (7).avif" alt="SRCOE Campus">
+        </div>
+        
+        <div class="about-text">
+          <h3>Excellence in Teacher Education Since 1981</h3>
+          <p>Sa'adatu Rimi College of Education, Kano is a premier institution dedicated to producing highly qualified teachers through innovative programs and cutting-edge resources.</p>
+          <p>Our digital library initiative reflects our commitment to providing students and faculty with 24/7 access to world-class educational materials, supporting both traditional and modern pedagogical approaches.</p>
+          
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number">40+</div>
+              <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">15K+</div>
+              <div class="stat-label">Graduates</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Academic Programs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs Section -->
+  <section class="programs-section" id="programs">
+    <div class="container">
+      <h2 class="section-title">Our Academic Programs</h2>
+      
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-img">
+            <img src="exams (2).png" alt="Education Program">
+          </div>
+          <div class="program-content">
+            <h3 class="program-title">NCE Programs</h3>
+            <p class="program-desc">Three-year Nigeria Certificate in Education programs across various subject combinations.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="program-card">
+          <div class="program-img">
+            <img src="Circulation (1).avif" alt="Degree Program">
+          </div>
+          <div class="program-content">
+            <h3 class="program-title">Degree Programs</h3>
+            <p class="program-desc">Bachelor of Education programs affiliated with leading Nigerian universities.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="program-card">
+          <div class="program-img">
+            <img src="Reading (1).png" alt="Professional Development">
+          </div>
+          <div class="program-content">
+            <h3 class="program-title">Professional Development</h3>
+            <p class="program-desc">Short courses and workshops for educators' continuous professional growth.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Library Section -->
+  <section class="library-section" id="library">
+    <div class="container">
+      <h2 class="section-title">Digital Books Collection</h2>
+      
+      <div class="library-intro">
+        <p>Our digital library provides access to thousands of e-books, academic journals, and educational resources across all disciplines. Search our collection or browse by subject area.</p>
+      </div>
+      
+      <div class="library-features">
+        <div class="library-feature">
+          <div class="library-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3>50,000+ E-books</h3>
+          <p>Comprehensive collection covering all academic disciplines</p>
+        </div>
+        
+        <div class="library-feature">
+          <div class="library-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>Advanced Search</h3>
+          <p>Powerful search tools to find exactly what you need</p>
+        </div>
+        
+        <div class="library-feature">
+          <div class="library-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3>Mobile Access</h3>
+          <p>Access resources anytime, anywhere on any device</p>
+        </div>
+        
+        <div class="library-feature">
+          <div class="library-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h3>Librarian Support</h3>
+          <p>Expert assistance available for research and inquiries</p>
+        </div>
+      </div>
+      
+      <div class="library-btn">
+        <a href="https://sruelibraryngcom.bubbleapps.io/version-test/ebook/1710212336959x661714823255223900" target="_blank" class="btn btn-accent">Explore Digital Repository</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Section -->
+  <section class="leadership-section">
+    <div class="container">
+      <h2 class="section-title">College Leadership</h2>
+      
+      <div class="glide leadership-slider">
+        <div class="glide__track" data-glide-el="track">
+          <div class="glide__slides">
+            <!-- Provost -->
+            <div class="glide__slide">
+              <div class="leader-card">
+                <img src="Provost.jpeg" alt="Dr. Kabiru Ahmad Gwarzo" class="leader-photo">
+                <h3 class="leader-name">Dr. Kabiru Ahmad Gwarzo</h3>
+                <p class="leader-position">Provost</p>
+                <p class="leader-summary">
+                  As the Chief Executive Officer of the college, Dr. Gwarzo provides visionary leadership and strategic direction. 
+                  With over 25 years of experience in teacher education, he has spearheaded numerous academic innovations and infrastructure 
+                  developments. His leadership focuses on maintaining academic excellence while fostering an environment conducive to research 
+                  and professional growth for both staff and students.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Deputy Provost (Academic) -->
+            <div class="glide__slide">
+              <div class="leader-card">
+                <img src="academic.jpeg" alt="Dr. Usman Umar Zango" class="leader-photo">
+                <h3 class="leader-name">Dr. Usman Umar Zango</h3>
+                <p class="leader-position">Deputy Provost (Academic)</p>
+                <p class="leader-summary">
+                  Dr. Zango oversees all academic programs, curriculum development, and faculty affairs. 
+                  With a PhD in Educational Administration, he ensures the college maintains high academic standards 
+                  and implements innovative teaching methodologies. His responsibilities include academic planning, 
+                  quality assurance, and fostering research collaborations with other institutions.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Deputy Provost (Admin) -->
+            <div class="glide__slide">
+              <div class="leader-card">
+                <img src="Admin.jpeg" alt="Deputy Provost (Admin)" class="leader-photo">
+                <h3 class="leader-name">Dr. Ibrahim Jarman Kiru</h3>
+                <p class="leader-position">Deputy Provost (Administration)</p>
+                <p class="leader-summary">
+                  The Deputy Provost (Administration) manages the college's administrative functions, including human resources, 
+                  student affairs, and general administration. This position plays a crucial role in policy implementation, 
+                  resource management, and ensuring smooth day-to-day operations of the institution to support its academic mission.
+                </p>
+              </div>
+            </div>
+            
+            <!-- Registrar -->
+            <div class="glide__slide">
+              <div class="leader-card">
+                <img src="Registrer.jpeg" alt="Dr. Atika Bala Mai Yafe" class="leader-photo">
+                <h3 class="leader-name">Dr. Atika Bala Mai Yafe</h3>
+                <p class="leader-position">Registrar</p>
+                <p class="leader-summary">
+                  As the Chief Administrative Officer, the Registrar is responsible for the college's records management, 
+                  statutory compliance, and governance procedures. Dr. Mai Yafe oversees student admissions, examinations, 
+                  and certification processes while ensuring adherence to regulatory requirements and institutional policies.
+                </p>
+              </div>
+            </div>
+            
+            <!-- College Bursar -->
+            <div class="glide__slide">
+              <div class="leader-card">
+                <img src="Burser.png" alt="College Bursar" class="leader-photo">
+                <h3 class="leader-name">Mal. Muzali Isah Wani Abu</h3>
+                <p class="leader-position">Bursar</p>
+                <p class="leader-summary">
+                  The Bursar serves as the college's chief financial officer, responsible for all financial matters including budgeting, 
+                  accounting, and financial reporting. This position ensures prudent financial management, develops revenue generation 
+                  strategies, and oversees the institution's investments and expenditures to support its educational mission.
+                </p>
+              </div>
+            </div>
+            
+            <!-- College Librarian -->
+            <div class="glide__slide">
+              <div class="leader-card">
+                <img src="librarian.jpeg" alt="College Librarian" class="leader-photo">
+                <h3 class="leader-name">Haj. Mabruka Abubakar Abba</h3>
+                <p class="leader-position">Librarian</p>
+                <p class="leader-summary">
+                  The College Librarian oversees all library services and resources, including the development of digital collections 
+                  and information literacy programs. Responsible for managing the college's information resources, this position 
+                  ensures students and faculty have access to current academic materials and develops innovative services to support 
+                  teaching, learning, and research activities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="glide__arrows" data-glide-el="controls">
+          <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-chevron-left"></i></button>
+          <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="glide__bullets" data-glide-el="controls[nav]">
+          <button class="glide__bullet" data-glide-dir="=0"></button>
+          <button class="glide__bullet" data-glide-dir="=1"></button>
+          <button class="glide__bullet" data-glide-dir="=2"></button>
+          <button class="glide__bullet" data-glide-dir="=3"></button>
+          <button class="glide__bullet" data-glide-dir="=4"></button>
+          <button class="glide__bullet" data-glide-dir="=5"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get In Touch</h3>
+          
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Address</h4>
+              <p>11KM Along Zaria Road, Kano, Nigeria</p>
+            </div>
+          </div>
+          
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Phone</h4>
+              <p>+234 906 332 3331</p>
+            </div>
+          </div>
+          
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <a href="mailto:library@srcoe.edu.ng">library@srcoe.edu.ng</a>
+            </div>
+          </div>
+          
+          <div class="contact-detail">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Library Hours</h4>
+              <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
+              Saturday: 10:00 AM - 4:00 PM</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section class="location-section">
+    <div class="container">
+      <h2 class="section-title">Our Location</h2>
+      
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.371407693921!2d8.516747314757812!3d11.996865991798623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11ae814c6e5e5a5b%3A0xc50d8d5a4f697b8!2sSa&#39;adatu%20Rimi%20College%20of%20Education!5e0!3m2!1sen!2sng!4v1623832800000!5m2!1sen!2sng" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-container">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <h4>About SRCOE</h4>
+        <p>Sa'adatu Rimi College of Education is a premier teacher training institution committed to academic excellence and innovation in education.</p>
+        
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="#programs"><i class="fas fa-chevron-right"></i> Academic Programs</a></li>
+          <li><a href="#library"><i class="fas fa-chevron-right"></i> Books Collection</a></li>
+          <li><a href="https://sruelibraryngcom.bubbleapps.io/version-test/ebook/1710212336959x661714823255223900" target="_blank"><i class="fas fa-chevron-right"></i> Repository</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Library Resources</h4>
+        <ul class="footer-links">
+          <li><a href="#"><i class="fas fa-chevron-right"></i> E-books</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Academic Journals</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Research Papers</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Past Questions</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Faculty Publications</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe to our newsletter for updates on new resources and library events.</p>
+        
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your Email" class="form-control" style="margin-bottom: 1rem;">
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sa'adatu Rimi College of Education. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <a href="#home" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.5.0/glide.min.js"></script>
+
+  <!-- JavaScript -->
+  <script>
+    // Real-time Date Display
+    function updateDateTime() {
+      const now = new Date();
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      };
+      document.getElementById('datetime').textContent = now.toLocaleDateString('en-NG', options);
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // Navigation Active State
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - 150)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('active');
+      } else {
+        backToTopBtn.classList.remove('active');
+      }
+    });
+
+    // Initialize Leadership Slider
+    new Glide('.glide', {
+      type: 'carousel',
+      perView: 1,
+      autoplay: 5000,
+      hoverpause: true,
+      gap: 20,
+      animationDuration: 800
+    }).mount();
+
+    // Form Submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      contactForm.reset();
+    });
+
+    // Smooth scrolling for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        const headerHeight = document.querySelector('.header-container').offsetHeight;
+        const navHeight = document.querySelector('.nav-container').offsetHeight;
+        const totalOffset = headerHeight + navHeight;
+        
+        window.scrollTo({
+          top: targetElement.offsetTop - totalOffset,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
